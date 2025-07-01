@@ -6,6 +6,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnHospital = findViewById(R.id.hospital);
+        btnHospital = findViewById(R.id.btnHospital);
 
         btnHospital.setOnClickListener(v-> {
             String phoneNumber = "09672234645";
@@ -24,5 +25,13 @@ public class MainActivity extends AppCompatActivity {
             intent.setData(Uri.parse("tel:" + phoneNumber));
             startActivity(intent);
         });
+
+
+      btnHospital.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, InfoActivity.class);
+            intent.putExtra("category", "HOSPITAL");
+            startActivity(intent);
+        });
+
     }
 }
